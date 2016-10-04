@@ -1,0 +1,27 @@
+= provide(:page_title, "All Posts")
+= provide :author, "active"
+
+.page-header
+  = link_to new_authors_post_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Post
+  %h1 Listing posts
+
+// .row
+//   - @posts.each do |post|
+//     = render 'post', post: post
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th.text-center Title
+        %th.text-center Action
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td= link_to "#{post.title}", authors_post_path(post)
+          %td
+            = link_to 'CHANGE', edit_authors_post_path(post), class: 'btn btn-sm btn-warning'
+            %span |
+            = link_to 'REMOVE', authors_post_path(post), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-sm btn-danger'

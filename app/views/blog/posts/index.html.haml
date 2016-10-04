@@ -1,0 +1,12 @@
+= provide(:page_title, "All Posts")
+= provide :blog_active, "active"
+
+.page-header
+  // = link_to new_post_path, class: 'btn btn-primary' do
+  //   %span.glyphicon.glyphicon-plus
+  //   New Post
+  %h1 Listing posts
+
+.row
+  - @posts.each do |post|
+    = render 'post', post: post

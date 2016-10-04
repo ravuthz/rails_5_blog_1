@@ -1,0 +1,13 @@
+= provide(:page_title, "Edit #{@post.title}")
+= provide :author, "active"
+
+.page-header
+  = link_to authors_posts_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to authors_post_path(@post), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-info-sign
+    Show
+  %h1 Editing post
+
+= render 'form', post: @post, url: authors_post_url(@post)

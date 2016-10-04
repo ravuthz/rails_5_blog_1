@@ -1,0 +1,10 @@
+= provide(:page_title, "New Post")
+= provide :blog_active, "active"
+
+.page-header
+  = link_to posts_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  %h1 New post
+
+= render 'form'

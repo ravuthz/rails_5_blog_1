@@ -1,0 +1,10 @@
+= provide(:page_title, "New Post")
+= provide :author, "active"
+
+.page-header
+  = link_to authors_posts_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  %h1 New post
+
+= render 'form', post: @post, url: authors_posts_url

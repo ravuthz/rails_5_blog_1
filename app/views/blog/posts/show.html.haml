@@ -1,0 +1,35 @@
+= provide(:page_title, "Show #{@post.title}")
+= provide :blog_active, "active"
+
+.page-header
+  = link_to posts_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  // = link_to edit_post_path(@post), class: 'btn btn-primary' do
+  //   %span.glyphicon.glyphicon-pencil
+  //   Edit
+  %h1 Show post
+
+.row
+  .col-sm-8
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          = @post.title
+      .panel-body
+        .thumbnail
+          %img{src: "#{@post.banner_image_url}"}
+        %p.published-date
+          = @post.display_day_published
+        %p
+          = @post.body.html_safe
+
+// %dl.dl-horizontal
+//   %dt Title:
+//   %dd= @post.title
+//   %dt Body:
+//   %dd= @post.body
+//   %dt Description:
+//   %dd= @post.description
+//   %dt Slug:
+//   %dd= @post.slug

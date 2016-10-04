@@ -1,0 +1,14 @@
+.col-sm-6.col-lg-4
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        = post.title
+    .panel-body
+      .thumbnail
+        %img{src: "#{post.banner_image_url}"}
+      %p.published-date
+        = post.display_day_published
+      %p
+        = truncate(post.description, length: 130)
+      %p
+        = link_to 'Read', post, class: 'btn btn-sm btn-default'
