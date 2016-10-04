@@ -14,31 +14,47 @@
 
 > * bootstrap_form
 
+> Friendly Id (Pretty URL)
+
+> * friendly_id
+
+> Devise (User Authentication)
+
+> * devise
+
 > # bundle install --path
 
 > # bundle exec rake db:create
 
-# Install Friendly Id
-
-gem 'friendly_id', '~> 5.0.0'
-
-$ rails generate friendly_id
-
 bundle install
 
-rails db:migrate
-
+### Create frontend post resource
+```
 rails g scaffold posts title:string body:text description:text slug:string:uniq
+```
 
+### Create frontend page resource
+```
 rails g controller pages about contact
-
-
-rails g migration add_banner_image_url_to_posts banner_image_url:string
+```
+### Migrate Database
+```
 rails db:migrate
+```
+### Add banner_image_url field to Post
+```
+rails g migration add_banner_image_url_to_posts banner_image_url:string
+```
 
+### Create backend post resource
+```
 rails g scaffold author/posts title:string body:text description:text slug:string:uniq
+```
+
+### Create backend post controller (Move post to blog/post)
 rails g controller blog/posts
 
+### Add field author_id to Post
 rails g migration add_author_id_to_post author_id:integer
 add_index :posts, :author_id
 
